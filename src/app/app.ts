@@ -6,7 +6,14 @@ import { RouterOutlet, RouterLinkWithHref, RouterLinkActive } from '@angular/rou
 
 @Component({
   selector: 'app-root',
-  imports: [MatToolbarModule, MatSidenavModule, MatIconModule, RouterOutlet, RouterLinkWithHref, RouterLinkActive],
+  imports: [
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    RouterOutlet,
+    RouterLinkWithHref,
+    RouterLinkActive,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

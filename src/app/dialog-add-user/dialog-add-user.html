@@ -1,6 +1,39 @@
 <h2 mat-dialog-title>Add User</h2>
 <mat-dialog-content>
- Hier Nutzer hinzufügen
+  <div class="input-div">
+    <mat-form-field appearance="outline" class="mr-16">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Noah" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Lion" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline"  class="full-width">
+      <mat-label>Birth Date</mat-label>
+      <input matInput placeholder="Placeholder" [matDatepicker]="picker1" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Street + House No.</mat-label>
+      <input matInput placeholder="Lion" />
+    </mat-form-field>
+  </div>
+  <div class="input-div">
+    <mat-form-field appearance="outline" class="mr-16">
+      <mat-label>Zip Code</mat-label>
+      <input matInput placeholder="Noah" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>City</mat-label>
+      <input matInput placeholder="Lion" />
+    </mat-form-field>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button matButton>Cancel</button>
