@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import {
-  MatDialog,
   MatDialogActions,
   MatDialogContent,
   MatDialogTitle,
@@ -13,6 +12,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { UserModel } from '../../models/user.class';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CommonModule } from '@angular/common';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -26,6 +29,8 @@ import { Firestore, collection, addDoc } from '@angular/fire/firestore';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    MatProgressBarModule,
+    CommonModule,
   ],
   templateUrl: './dialog-add-user.html',
   styleUrl: './dialog-add-user.scss',
@@ -34,10 +39,12 @@ export class DialogAddUser {
   datepicker: any;
   birthDate: Date = new Date();
   user: UserModel = new UserModel();
+  loading: boolean = false;
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore, public dialogRef: MatDialogRef<DialogAddUser>) {}
 
  async saveUser() {
+  this.loading = true;
   this.user.birthDate = this.birthDate.getTime();
   console.log('Current User is:', this.user);
 
@@ -45,4 +52,6 @@ export class DialogAddUser {
   const docRef = await addDoc(usersRef, this.user.toJSON());
 
   console.log('Added User', docRef.id);
+  this.dialogRef.close();
+  this.loading = false;
 }}
