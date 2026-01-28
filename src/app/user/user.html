@@ -9,9 +9,9 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let user of users$ | async; trackBy: trackById">
+      <tr *ngFor="let user of users$ | async; trackBy: trackById" [routerLink]="'/user/' + user.id">
         <td>{{ user.firstName }} {{ user.lastName }}</td>
-        <td>{{ user.street }}</td>
+        <td>{{ user.email }}</td>
         <td>{{ user.city }}</td>
       </tr>
     </tbody>

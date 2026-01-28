@@ -11,10 +11,12 @@ import { collectionData } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { UserModel } from '../../models/user.class';
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-user',
-  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, MatCardModule, CommonModule],
+  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, MatCardModule, CommonModule, RouterLink, RouterLinkActive, RouterModule],
   templateUrl: './user.html',
   styleUrl: './user.scss',
 })
