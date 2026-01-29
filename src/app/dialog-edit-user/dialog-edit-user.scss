@@ -1,0 +1,19 @@
+.dialog-container {
+    height: 450px;
+}
+
+.full-width {
+    margin-top: 12px;
+}
+
+.dialog-container {
+    position: relative;
+
+    mat-progress-bar {
+        position: absolute;
+    }
+}
+
+.mt-12 {
+    margin-top: 12px;
+}

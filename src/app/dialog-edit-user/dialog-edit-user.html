@@ -1,0 +1,35 @@
+<div class="dialog-container">
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<h2 mat-dialog-title>Add User</h2>
+<mat-dialog-content>
+  <div class="input-div">
+    <mat-form-field appearance="outline" class="mr-16 mt-12">
+      <mat-label>First Name</mat-label>
+      <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="Noah" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mt-12">
+      <mat-label>Last Name</mat-label>
+      <input [disabled]="loading" [(ngModel)]="user.lastName" matInput placeholder="Lion" />
+    </mat-form-field>
+  </div>
+   <div>
+    <mat-form-field appearance="outline"  class="full-width">
+       <mat-label>Email</mat-label>
+      <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="name.lastname@hotmail.com" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline"  class="full-width">
+      <mat-label>Birth Date</mat-label>
+      <input [disabled]="loading" [(ngModel)]="birthDate" matInput placeholder="Placeholder" [matDatepicker]="picker1" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button [disabled]="loading" matButton (click)="this.dialogRef.close()">Cancel</button>
+  <button [disabled]="loading" matButton (click)="saveUser()">Save</button>
+</mat-dialog-actions>
+</div>
